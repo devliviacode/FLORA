@@ -1,0 +1,59 @@
+<%- include('../includes/header', { titulo: 'Nova Movimentação', usuario }) %>
+
+<main class="container">
+    <section class="card-sistema">
+        <h1>NOVA MOVIMENTAÇÃO</h1>
+
+        <% if (typeof erro !== 'undefined' && erro) { %>
+            <div class="alerta-erro"><%= erro %></div>
+        <% } %>
+
+        <form action="/movimentacoes/novo" method="POST" class="form-cadastro">
+            <div class="campo-bloco">
+                <label for="id_produto" class="campo-label">Produto</label>
+                <select id="id_produto" name="id_produto" class="campo-flora" required>
+                    <option value="" disabled selected>Selecione o produto</option>
+                    <% if (produtos && produtos.length > 0) { %>
+                        <% produtos.forEach(prod => { %>
+                            <option value="<%= prod.id_produto %>">
+                                <%= prod.nome_produto %> (Estoque atual: <%= prod.quantidade_produto %> un.)
+                            </option>
+                        <% }) %>
+                    <% } %>
+                </select>
+            </div>
+
+            <div class="linha-dupla">
+                <div class="campo-bloco">
+                    <label for="tipo" class="campo-label">Tipo de movimentação</label>
+                    <select id="tipo" name="tipo" class="campo-flora" required>
+                        <option value="Entrada">Entrada (Reposição)</option>
+                        <option value="Saída">Saída (Venda / Baixa)</option>
+                    </select>
+                </div>
+
+                <div class="campo-bloco">
+                    <label for="quantidade_movimentacao" class="campo-label">Quantidade</label>
+                    <input type="number" id="quantidade_movimentacao" name="quantidade_movimentacao" min="1" class="campo-flora" placeholder="Ex: 4" required>
+                </div>
+            </div>
+
+            <div class="campo-bloco">
+                <label for="data_movimentacao" class="campo-label">Data da movimentação</label>
+                <input type="date" id="data_movimentacao" name="data_movimentacao" class="campo-flora" required>
+            </div>
+
+            <button type="submit" class="btn-entrar">Registrar Movimentação</button>
+            <a href="/movimentacoes" class="btn-cancelar-link">Cancelar e voltar para Movimentações</a>
+        </form>
+    </section>
+</main>
+
+<script>
+    const campoDataMov = document.getElementById('data_movimentacao');
+    if (campoDataMov && !campoDataMov.value) {
+        campoDataMov.value = new Date().toISOString().split('T')[0];
+    }
+</script>
+
+<%- include('../includes/footer') %>

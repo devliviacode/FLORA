@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora — Entrada de Funcionários</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilos-adm.css">
+</head>
+
+<body>
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+            <div class="cabecalho-esquerda">
+                <a href="/" class="logo">
+                    <img src="/img/landing/logo.png" alt="Flora">
+                </a>
+            </div>
+
+
+            <div class="cabecalho-direita">
+                <a href="/" class="btn-voltar-site">Voltar ao site</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CARD CENTRAL DE LOGIN -->
+    <main class="area-login">
+        <div class="card-login">
+            <h1>ENTRADA DE<br>FUNCIONÁRIOS</h1>
+
+            <% if (typeof erro !== 'undefined' && erro) { %>
+                <div class="alerta-erro"><%= erro %></div>
+            <% } %>
+
+            <form action="/login" method="POST" class="form-login" maxlength="150">
+                <div class="campo-grupo">
+                    <input type="email" name="email" placeholder="Informe seu e-mail" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <input type="password" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <button type="submit" class="btn-entrar">Entrar</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FAIXA DEGRADÊ VERDE INFERIOR -->
+    <div class="rodape-degrade"></div>
+</body>
+
+</html>

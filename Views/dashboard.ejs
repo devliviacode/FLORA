@@ -1,0 +1,144 @@
+<%- include('./includes/header', { titulo: 'Dashboard', usuario }) %>
+
+<main>
+    <!-- SEÇÃO 1: ALERTA DE ESTOQUE MÍNIMO -->
+    <section class="secao-alerta">
+        <div class="container">
+            <h2 class="titulo-alerta">ALERTA DE ESTOQUE MÍNIMO</h2>
+
+            <div class="grade-produtos">
+                <% if (produtosAlerta && produtosAlerta.length > 0) { %>
+                    <% produtosAlerta.forEach(produto => { %>
+                        <a href="/produtos/editar/<%= produto.id_produto %>" class="card-produto"
+                            title="<%= produto.nome_produto %> — Estoque: <%= produto.quantidade_produto %> (Mín: <%= produto.estoque_minimo %>)">
+                            <% if (produto.imagem_produto && produto.imagem_produto.trim() !== '') { %>
+                                <img src="/img/upload/<%= produto.imagem_produto %>"
+                                    alt="<%= produto.nome_produto %>"
+                                    onerror="this.classList.add('oculto'); this.nextElementSibling.classList.remove('oculto');">
+                                <div class="sem-imagem-card oculto">
+                                    <span><%= produto.nome_produto %></span>
+                                    <small>Sem foto</small>
+                                </div>
+                            <% } else { %>
+                                <div class="sem-imagem-card">
+                                    <span><%= produto.nome_produto %></span>
+                                    <small>Sem foto</small>
+                                </div>
+                            <% } %>
+                            <span class="badge-estoque">
+                                <%= produto.quantidade_produto %> un.
+                            </span>
+                        </a>
+                    <% }) %>
+                <% } else { %>
+                    <p class="mensagem-vazia">Nenhum produto em alerta de estoque mínimo.</p>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: CATEGORIAS -->
+    <section class="secao-categorias">
+        <div class="container">
+            <div class="cabecalho-categorias">
+                <h2>CATEGORIAS</h2>
+                <a href="/categorias/novo" class="btn-pilula-rosa">CADASTRAR</a>
+            </div>
+
+            <% if (categoriasComProdutos && categoriasComProdutos.length > 0) { %>
+                <% categoriasComProdutos.forEach(categoria => { %>
+                    <div class="bloco-categoria">
+                        <span class="tag-categoria">
+                            <%= categoria.nome_categoria %>
+                        </span>
+
+                        <div class="grade-produtos">
+                            <% if (categoria.produtos && categoria.produtos.length > 0) { %>
+                                <% categoria.produtos.forEach(produto => { %>
+                                    <% const isInativo = produto.situacao_produto && !produto.situacao_produto.toLowerCase().startsWith('ativ'); %>
+                                    <div class="card-produto <%= isInativo ? 'inativo' : '' %>"
+                                        title="<%= isInativo ? '[INATIVO] ' : '' %><%= produto.nome_produto %> — R$ <%= Number(produto.valor_produto).toFixed(2).replace('.', ',') %> | Estoque: <%= produto.quantidade_produto %>">
+                                        <% if (produto.imagem_produto && produto.imagem_produto.trim() !== '') { %>
+                                            <img src="/img/upload/<%= produto.imagem_produto %>"
+                                                alt="<%= produto.nome_produto %>"
+                                                onerror="this.classList.add('oculto'); this.nextElementSibling.classList.remove('oculto');">
+                                            <div class="sem-imagem-card oculto">
+                                                <span><%= produto.nome_produto %></span>
+                                                <small>Sem foto</small>
+                                            </div>
+                                        <% } else { %>
+                                            <div class="sem-imagem-card">
+                                                <span><%= produto.nome_produto %></span>
+                                                <small>Sem foto</small>
+                                            </div>
+                                        <% } %>
+
+                                        <% if (isInativo) { %>
+                                            <span class="badge-inativo">Inativo</span>
+                                        <% } %>
+
+                                        <a href="/produtos/editar/<%= produto.id_produto %>"
+                                            class="btn-editar-card" title="Editar <%= produto.nome_produto %>">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.2">
+                                                <path
+                                                    d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z">
+                                                </path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                <% }) %>
+                            <% } else { %>
+                                <p class="mensagem-vazia">Nenhum produto encontrado nesta categoria.</p>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="mensagem-vazia">Nenhuma categoria cadastrada.</p>
+            <% } %>
+
+            <!-- Tag de transição para Coleções -->
+            <div class="marcador-colecoes">
+                <span class="tag-categoria">Coleções</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: COLEÇÕES (FUNDO ESCURO) -->
+    <section class="secao-colecoes">
+        <div class="container">
+            <div class="grade-colecoes">
+                <a href="#colecao-aurora" class="card-colecao">
+                    <img src="/img/landing/aurora26.jpg" alt="Aurora '26">
+                    <div class="overlay-colecao">
+                        <h3>AURORA '26</h3>
+                    </div>
+                </a>
+
+                <a href="#colecao-outono" class="card-colecao">
+                    <img src="/img/landing/outonoinverno26.jpg" alt="Outono Inverno '26">
+                    <div class="overlay-colecao">
+                        <h3>OUTONO<br>INVERNO '26</h3>
+                    </div>
+                </a>
+
+                <a href="#colecao-alta-costura" class="card-colecao">
+                    <img src="/img/landing/altacostura26.jpg" alt="Alta Costura '26">
+                    <div class="overlay-colecao">
+                        <h3>ALTA COSTURA<br>'26</h3>
+                    </div>
+                </a>
+
+                <a href="#colecao-primavera" class="card-colecao">
+                    <img src="/img/landing/primaveraverao26.jpg" alt="Primavera '26">
+                    <div class="overlay-colecao">
+                        <h3>PRIMAVERA<br>'26</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

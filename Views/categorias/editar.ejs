@@ -1,0 +1,47 @@
+<%- include('../includes/header', { titulo: "Editar Categoria", usuario }) %>
+
+<main class="conteudo">
+    <div class="cabecalho-conteudo">
+        <div>
+            <h1>Editar categoria</h1>
+            <p>Altere as informações da categoria selecionada.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <form action="/categorias/editar/<%= categoria.id %>" method="POST">
+            <div class="campo-formulario">
+                <label for="nome">Nome</label>
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    value="<%= categoria.nome %>"
+                    required
+                    maxlength="80"
+                    minlength="3"
+                >
+            </div>
+
+            <div class="campo-formulario" style="margin-top: 16px;">
+                <label for="descricao">Descrição</label>
+                <textarea
+                    id="descricao"
+                    name="descricao"
+                    maxlength="255"
+                ><%= categoria.descricao || '' %></textarea>
+            </div>
+
+            <div class="botoes-formulario">
+                <a class="btn btn-muted" href="/categorias">
+                    Cancelar
+                </a>
+                <button class="btn btn-primario" type="submit">
+                    Salvar alterações
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include('../includes/footer') %>

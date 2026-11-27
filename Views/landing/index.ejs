@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora — Artesanato & Crochê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilos-lp.css">
+</head>
+
+<body>
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+            <div class="cabecalho-esquerda">
+                <a href="/" class="logo">
+                    <img src="/img/landing/logo.png" alt="Flora">
+                </a>
+
+                <form action="/dashboard" method="GET" class="barra-busca">
+                    <svg class="icone-busca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" name="busca" placeholder="Buscar">
+                </form>
+            </div>
+
+            <nav class="menu">
+                <a href="#sobre">Sobre</a>
+                <a href="#quemsomos">Quem somos</a>
+                <a href="#essencia">Essência</a>
+                <a href="#faleconosco">Contato</a>
+            </nav>
+
+            <div class="cabecalho-direita">
+                <a href="/login" class="btn-header-nav">Entrada de funcionários</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAIXA DE IMAGEM ENTRE O CABEÇALHO E O CONTEÚDO -->
+    <div class="faixa-banner">
+        <img src="/img/landing/banner-topo.jpg" alt="Detalhes florais Flora">
+    </div>
+
+    <main>
+        <!-- SEÇÃO 1 E 2: SOBRE A FLORA & QUEM SOMOS -->
+        <section class="secao-manifesto">
+            <div class="container">
+                <!-- Card 1: Sobre a Flora (#sobre) -->
+                <article class="card-institucional" id="sobre">
+                    <span class="pilula-verde">Manifesto &amp; História</span>
+                    <h2>SOBRE A FLORA</h2>
+                    <p class="citacao-rosa">“O artesanal encontra sua essência.”</p>
+                    <p class="texto-manifesto">
+                        Feito à mão. Feito com intenção. Feito para você.<br>
+                        Transformamos fios em cores e intuição em peças únicas que celebram a beleza de ser quem você é!
+                    </p>
+                </article>
+
+                <!-- Card 2: Quem Somos (#quemsomos) -->
+                <article class="card-institucional" id="quemsomos">
+                    <span class="subtitulo-verde">NOSSA ORIGEM</span>
+                    <h2>QUEM SOMOS?</h2>
+                    <p class="texto-manifesto texto-estreito">
+                        Somos uma marca que valoriza o feito à mão, criatividade e a poesia nos detalhes. Na
+                        Flora, acreditamos que uma peça artesanal vai além de um produto: ela carrega tempo,
+                        dedicação, personalidade e inspira uma forma mais especial e consciente de consumir
+                        moda.
+                    </p>
+                    <div class="assinatura-floral">
+                        <svg class="flor-rosa" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2c1.9 0 3.4 1.5 3.4 3.4 0 .8-.3 1.5-.7 2.1.7-.2 1.5-.1 2.2.3 1.6.9 2.2 3 1.2 4.6-.4.7-1 1.2-1.7 1.5.7.3 1.3.8 1.7 1.5.9 1.6.4 3.7-1.2 4.6-.7.4-1.5.5-2.2.3.4.6.7 1.3.7 2.1 0 1.9-1.5 3.4-3.4 3.4s-3.4-1.5-3.4-3.4c0-.8.3-1.5.7-2.1-.7.2-1.5.1-2.2-.3-1.6-.9-2.2-3-1.2-4.6.4-.7 1-1.2 1.7-1.5-.7-.3-1.3-.8-1.7-1.5-.9-1.6-.4-3.7 1.2-4.6.7-.4 1.5-.5 2.2-.3-.4-.6-.7-1.3-.7-2.1C8.6 3.5 10.1 2 12 2zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                        </svg>
+                        <span>Cada nó uma história, cada trama um carinho.</span>
+                        <svg class="flor-rosa" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2c1.9 0 3.4 1.5 3.4 3.4 0 .8-.3 1.5-.7 2.1.7-.2 1.5-.1 2.2.3 1.6.9 2.2 3 1.2 4.6-.4.7-1 1.2-1.7 1.5.7.3 1.3.8 1.7 1.5.9 1.6.4 3.7-1.2 4.6-.7.4-1.5.5-2.2.3.4.6.7 1.3.7 2.1 0 1.9-1.5 3.4-3.4 3.4s-3.4-1.5-3.4-3.4c0-.8.3-1.5.7-2.1-.7.2-1.5.1-2.2-.3-1.6-.9-2.2-3-1.2-4.6.4-.7 1-1.2 1.7-1.5-.7-.3-1.3-.8-1.7-1.5-.9-1.6-.4-3.7 1.2-4.6.7-.4 1.5-.5 2.2-.3-.4-.6-.7-1.3-.7-2.1C8.6 3.5 10.1 2 12 2zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                        </svg>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: O QUE É A FLORA? -->
+        <section class="secao-o-que-e" id="pecas">
+            <div class="container">
+                <span class="pilula-rosa-suave">Diversidade em fios</span>
+                <h2>O QUE É A FLORA?</h2>
+
+                <div class="descricao-o-que-e">
+                    <p>
+                        A Flora reúne roupas, bolsas, acessórios e artigos cheios de charme em crochê, sempre buscando unir beleza, originalidade e versatilidade para o seu dia a dia.
+                    </p>
+                    <p>
+                        Nossas peças combinam diferentes texturas, tonalidades terrosas e caimentos fluidos, permitindo que cada pessoa encontre a criação perfeita que conversa com própria essência.
+                    </p>
+                </div>
+
+                <div class="galeria-pecas">
+                    <div class="item-peca">
+                        <img src="/img/landing/peca-1.jpg" alt="Acessório de cabeça em crochê">
+                    </div>
+                    <div class="item-peca">
+                        <img src="/img/landing/peca-2.jpg" alt="Conjunto azul em crochê">
+                    </div>
+                    <div class="item-peca">
+                        <img src="/img/landing/peca-3.jpg" alt="Vestido preto em crochê">
+                    </div>
+                    <div class="item-peca">
+                        <img src="/img/landing/peca-4.jpg" alt="Bolsa floral em crochê">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: NOSSA ESSÊNCIA (#essencia) -->
+        <section class="secao-essencia" id="essencia">
+            <div class="container">
+                <div class="painel-essencia">
+                    <div class="cabecalho-essencia">
+                        <span class="subtitulo-valores">VALORES &amp; PROPÓSITOS</span>
+                        <h2>NOSSA ESSÊNCIA</h2>
+                        <p class="citacao-rosa">Pilares que guiam cada ponto e escolha da Flora!</p>
+                    </div>
+
+                    <div class="grade-valores">
+                        <article class="card-valor">
+                            <span class="tag-valor tag-artesanal">Artesanal</span>
+                            <p>
+                                Cada peça recebe atenção dedicada aos mínimos detalhes. O tempo de confecção respeita a calma e a precisão do trabalho manual.
+                            </p>
+                        </article>
+
+                        <article class="card-valor">
+                            <span class="tag-valor tag-natural">Natural</span>
+                            <p>
+                                Buscamos inspiração nas cores, curvas, folhagens e elementos orgânicos da natureza para criar combinações harmônicas e atemporais.
+                            </p>
+                        </article>
+
+                        <article class="card-valor">
+                            <span class="tag-valor tag-autentica">Autêntica</span>
+                            <p>
+                                Valorizamos peças com alma e personalidade própria. Não fazemos produção em massa, fazemos arte para vestir.
+                            </p>
+                        </article>
+
+                        <article class="card-valor">
+                            <span class="tag-valor tag-criativa">Criativa</span>
+                            <p>
+                                O crochê pode ser moderno, delicado e ousado e repleto de possibilidades estilísticas para valorizar seu guarda-roupa.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: FEITO À MÃO, DE VERDADE -->
+        <section class="secao-feito-a-mao">
+            <div class="container feito-a-mao-conteudo">
+                <div class="feito-a-mao-imagem">
+                    <img src="/img/landing/mochila-margaridas.jpg" alt="Mochila artesanal de crochê com margaridas">
+                </div>
+
+                <div class="feito-a-mao-texto">
+                    <div class="titulo-exclusividade">
+                        <span class="subtitulo-valores">EXCLUSIVIDADE &amp; CONEXÃO</span>
+                        <h2>FEITO À MÃO, DE<br>VERDADE.</h2>
+                    </div>
+
+                    <p class="paragrafo-exclusividade">
+                        Por serem criações genuinamente artesanais, pequenas e sutis diferenças entre uma peça e outra não são imperfeições - fazem parte do processo humano e tornam seu item ainda mais especial e irrepetível.
+                    </p>
+
+                    <div class="card-proposta">
+                        <span class="label-proposta">NOSSA PROPOSTA</span>
+                        <p>
+                            Levar o crochê para além do tradicional. Queremos mostrar que o artesanal também conversa com o design contemporâneo, a moda urbana e a leveza do dia a dia, preservando sempre o encanto singular de algo feito manualmente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 6: CHAMADA FINAL (#faleconosco) -->
+        <section class="secao-cta-final" id="faleconosco">
+            <div class="container">
+                <div class="icone-sol">
+                    <img src="/img/landing/sol.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <svg style="display:none;" width="62" height="62" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="12" fill="#F9C770" stroke="#E59866" stroke-width="2"/>
+                        <circle cx="32" cy="32" r="7" fill="#F48C94" opacity="0.45"/>
+                        <path d="M32 6L35 17H29L32 6ZM32 58L29 47H35L32 58ZM6 32L17 29V35L6 32ZM58 32L47 35V29L58 32ZM13.6 13.6L22.5 19.3L19.3 22.5L13.6 13.6ZM50.4 50.4L41.5 44.7L44.7 41.5L50.4 50.4ZM50.4 13.6L44.7 22.5L41.5 19.3L50.4 13.6ZM13.6 50.4L19.3 41.5L22.5 44.7L13.6 50.4Z" fill="#F3B562"/>
+                    </svg>
+                </div>
+
+                <h2 class="frase-final">
+                    Encontre sua peça.<br>
+                    Encontre seu estilo.<br>
+                    <span class="destaque-flora">Encontre a sua Flora.</span>
+                </h2>
+
+                <p class="legenda-final">Feito à mão para fazer parte de você.</p>
+
+                <div class="botoes-finais">
+                    <a href="#pecas" class="btn-cta-rosa">
+                        <span>CONHEÇA A COLEÇÃO</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="mailto:contato@flora.com" class="btn-cta-contorno">FALE CONOSCO</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

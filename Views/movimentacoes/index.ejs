@@ -1,0 +1,81 @@
+<%- include('../includes/header', { titulo: 'Movimentações de Estoque', usuario }) %>
+
+<div class="banner-movimentacoes">
+    <img src="/img/upload/bannermovimentacoes.jpg" alt="Banner Movimentações" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+</div>
+
+<main class="area-adm">
+    <div class="container-movimentacoes">
+        <div class="cabecalho-movimentacoes">
+            <div>
+                <h1>MOVIMENTAÇÕES DE ESTOQUE</h1>
+                <p>Histórico de entradas e saídas de peças — Total: <strong><%= movimentacoes.length %></strong></p>
+            </div>
+
+            <a href="/movimentacoes/novo" class="btn-nova-movimentacao">+ Nova movimentação</a>
+        </div>
+
+        <form method="GET" action="/movimentacoes" class="barra-filtro-mov">
+            <input type="text" name="busca" class="campo-flora" placeholder="Buscar por nome do produto..." value="<%= busca %>">
+
+            <select name="tipo" class="campo-flora select-tipo-mov">
+                <option value="">Todos os tipos</option>
+                <option value="Entrada" <%= tipo === 'Entrada' ? 'selected' : '' %>>Entrada</option>
+                <option value="Saída" <%= tipo === 'Saída' ? 'selected' : '' %>>Saída</option>
+            </select>
+
+            <button type="submit" class="btn-filtrar-mov">Filtrar</button>
+            <a href="/movimentacoes" class="btn-limpar-mov">Limpar</a>
+        </form>
+
+        <section class="card-tabela-mov">
+            <div class="tabela-responsiva">
+                <table class="tabela-flora">
+                    <thead>
+                        <tr>
+                            <th>DATA</th>
+                            <th>PRODUTO</th>
+                            <th>TIPO</th>
+                            <th>QUANTIDADE</th>
+                            <th>ESTOQUE ANTERIOR</th>
+                            <th>ESTOQUE ATUAL</th>
+                            <th>RESPONSÁVEL</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (movimentacoes && movimentacoes.length > 0) { %>
+                            <% movimentacoes.forEach(mov => { %>
+                                <tr>
+                                    <td>
+                                        <%= mov.data_movimentacao ? new Date(mov.data_movimentacao).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '-' %>
+                                    </td>
+                                    <td><strong><%= mov.nome_produto %></strong></td>
+                                    <td>
+                                        <span class="badge-tipo <%= mov.tipo === 'Entrada' ? 'badge-entrada' : 'badge-saida' %>">
+                                            <%= mov.tipo %>
+                                        </span>
+                                    </td>
+                                    <td><%= mov.quantidade_movimentacao %></td>
+                                    <td><%= mov.estoque_anterior %></td>
+                                    <td><strong><%= mov.estoque_atual %></strong></td>
+                                    <td><%= mov.nome_administrador || 'Sistema' %></td>
+                                    <td class="celula-acoes-mov">
+                                        <a href="/movimentacoes/editar/<%= mov.id_movimentacao %>" class="btn-editar-amarelo">Editar</a>
+                                        <a href="/movimentacoes/excluir/<%= mov.id_movimentacao %>" class="btn-excluir-mov" onclick="return confirm('Deseja excluir esta movimentação? O estoque do produto será recalculado.')">Excluir</a>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="8" class="linha-vazia-mov">Nenhuma movimentação registrada.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</main>
+
+<%- include('../includes/footer') %>

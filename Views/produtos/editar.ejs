@@ -1,0 +1,101 @@
+<%- include('../includes/header', { titulo: 'Editar Produto' , usuario }) %>
+
+    <main class="area-adm">
+        <div class="container-editar">
+            <h1 class="titulo-editar">EDITAR PRODUTO</h1>
+
+            <section class="card-editar-produto">
+                <form action="/produtos/editar/<%= produto.id_produto %>" method="POST" enctype="multipart/form-data"
+                    class="form-editar">
+                    <input type="hidden" name="imagem_atual" value="<%= produto.imagem_produto %>">
+
+                    <div class="campo-editar">
+                        <label for="nome_produto">Nome do produto</label>
+                        <input type="text" id="nome_produto" name="nome_produto" value="<%= produto.nome_produto %>"
+                            required>
+                    </div>
+
+                    <div class="campo-editar">
+                        <label for="descricao_produto">Descrição</label>
+                        <input type="text" id="descricao_produto" name="descricao_produto"
+                            value="<%= produto.descricao_produto || '' %>">
+                    </div>
+
+                    <div class="campo-editar">
+                        <label for="quantidade_produto">Quantidade em estoque</label>
+                        <input type="number" id="quantidade_produto" name="quantidade_produto" min="0"
+                            value="<%= produto.quantidade_produto %>" required>
+                    </div>
+
+                    <div class="campo-editar">
+                        <label for="estoque_minimo">Estoque mínimo</label>
+                        <input type="number" id="estoque_minimo" name="estoque_minimo" min="0"
+                            value="<%= produto.estoque_minimo %>" required>
+                    </div>
+
+                    <div class="campo-editar">
+                        <label for="valor_produto">Valor (R$)</label>
+                        <input type="number" id="valor_produto" name="valor_produto" step="0.01" min="0"
+                            value="<%= produto.valor_produto %>" required>
+                    </div>
+
+                    <div class="campo-editar">
+                        <label for="id_categoria">Categoria</label>
+                        <select id="id_categoria" name="id_categoria" required>
+                            <option value="" disabled>Selecione uma categoria</option>
+                            <% if (categorias && categorias.length> 0) { %>
+                                <% categorias.forEach(cat=> { %>
+                                    <option value="<%= cat.id_categoria %>" <%=cat.id_categoria==produto.id_categoria
+                                        ? 'selected' : '' %>>
+                                        <%= cat.nome_categoria %>
+                                    </option>
+                                    <% }) %>
+                                        <% } %>
+                        </select>
+                    </div>
+
+                    <div class="campo-editar">
+                        <label for="imagem_produto">Imagem do produto</label>
+                        <label for="imagem_produto" class="input-arquivo-editar">
+                            <span id="nome-arquivo-editar">
+                                <%= produto.imagem_produto || 'Selecionar nova imagem...' %>
+                            </span>
+                            <input type="file" id="imagem_produto" name="imagem_produto" accept="image/*">
+                        </label>
+                    </div>
+
+                    <div class="rodape-form-editar">
+                        <label class="checkbox-ativo">
+                            <input type="checkbox" name="situacao_ativo" <%=produto.situacao_produto==='Ativo'
+                                ? 'checked' : '' %>>
+                            <span class="caixa-check"></span>
+                            <span>Produto ativo</span>
+                        </label>
+
+                        <div class="acoes-editar">
+                            <a href="/dashboard" class="link-cancelar-editar">Cancelar</a>
+                            <button type="submit" class="btn-atualizar">Atualizar</button>
+                        </div>
+                    </div>
+                </form>
+                <form action="/produtos/excluir/<%= produto.id_produto %>" method="POST"
+                    onsubmit="return confirm('Tem certeza que deseja excluir este produto?');"
+                    style="margin-top: 12px;">
+                    <button type="submit" class="btn-excluir">Excluir Produto</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const inputImgEditar = document.getElementById('imagem_produto');
+        const labelImgEditar = document.getElementById('nome-arquivo-editar');
+
+        inputImgEditar.addEventListener('change', function () {
+            if (this.files && this.files.length > 0) {
+                labelImgEditar.textContent = this.files[0].name;
+            }
+        });
+    </script>
+
+    <%- include('../includes/footer') %>

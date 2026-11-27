@@ -1,0 +1,52 @@
+<%- include('../includes/header', { titulo: 'Editar Movimentação', usuario }) %>
+
+<main class="container">
+    <section class="card-sistema">
+        <h1>EDITAR MOVIMENTAÇÃO</h1>
+
+        <% if (typeof erro !== 'undefined' && erro) { %>
+            <div class="alerta-erro"><%= erro %></div>
+        <% } %>
+
+        <form action="/movimentacoes/editar/<%= movimentacao.id_movimentacao %>" method="POST" class="form-cadastro">
+            <div class="campo-bloco">
+                <label for="id_produto" class="campo-label">Produto</label>
+                <select id="id_produto" name="id_produto" class="campo-flora" required>
+                    <% if (produtos && produtos.length > 0) { %>
+                        <% produtos.forEach(prod => { %>
+                            <option value="<%= prod.id_produto %>" <%= prod.id_produto == movimentacao.id_produto ? 'selected' : '' %>>
+                                <%= prod.nome_produto %> (Estoque atual: <%= prod.quantidade_produto %> un.)
+                            </option>
+                        <% }) %>
+                    <% } %>
+                </select>
+            </div>
+
+            <div class="linha-dupla">
+                <div class="campo-bloco">
+                    <label for="tipo" class="campo-label">Tipo de movimentação</label>
+                    <select id="tipo" name="tipo" class="campo-flora" required>
+                        <option value="Entrada" <%= movimentacao.tipo === 'Entrada' ? 'selected' : '' %>>Entrada</option>
+                        <option value="Saída" <%= movimentacao.tipo === 'Saída' ? 'selected' : '' %>>Saída</option>
+                    </select>
+                </div>
+
+                <div class="campo-bloco">
+                    <label for="quantidade_movimentacao" class="campo-label">Quantidade</label>
+                    <input type="number" id="quantidade_movimentacao" name="quantidade_movimentacao" min="1" class="campo-flora" value="<%= movimentacao.quantidade_movimentacao %>" required>
+                </div>
+            </div>
+
+            <div class="campo-bloco">
+                <label for="data_movimentacao" class="campo-label">Data da movimentação</label>
+                <input type="date" id="data_movimentacao" name="data_movimentacao" class="campo-flora"
+                    value="<%= movimentacao.data_movimentacao ? new Date(movimentacao.data_movimentacao).toISOString().split('T')[0] : '' %>" required>
+            </div>
+
+            <button type="submit" class="btn-entrar">Salvar Alterações</button>
+            <a href="/movimentacoes" class="btn-cancelar-link">Cancelar e voltar para Movimentações</a>
+        </form>
+    </section>
+</main>
+
+<%- include('../includes/footer') %>

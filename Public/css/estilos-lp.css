@@ -1,0 +1,637 @@
+:root {
+    --fundo-creme: #F7F3EB;
+    --card-creme: #F4EFE6;
+    --fundo-rosa-blush: #F3DBD7;
+    --fundo-verde-salvia: #D2E4C4;
+    --rosa-principal: #FF8E99;
+    --rosa-hover: #f27985;
+    --rosa-texto: #F27D88;
+    --verde-pilula: #DCE9C8;
+    --verde-texto: #6D8E3E;
+    --amarelo-botao: #F7DF84;
+    --amarelo-botao-hover: #f1d25e;
+    --texto-escuro: #1E1C1A;
+    --texto-corpo: #3B3734;
+    --fonte-serif: 'Cormorant Garamond', Georgia, serif;
+    --fonte-sans: 'Poppins', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-serif);
+    background-color: var(--fundo-creme);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+.container {
+    width: 92%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+/* ========================
+   CABEÇALHO (DEGRADÊ ROSA)
+   ======================== */
+.cabecalho {
+    font-family: var(--fonte-sans);
+    background: linear-gradient(180deg, #FF8E99 0%, #FFB8B2 58%, #FAF6F2 100%);
+    padding: 22px 0 28px;
+}
+
+.cabecalho-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cabecalho-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+}
+
+.barra-busca {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 6px 16px;
+    width: 220px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.icone-busca {
+    width: 14px;
+    height: 14px;
+    color: #9A8F8C;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.barra-busca input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: var(--fonte-sans);
+    font-size: 12px;
+    color: var(--texto-escuro);
+    width: 100%;
+}
+
+.cabecalho-direita {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: var(--fonte-sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    padding: 6px 16px;
+    border-radius: 22px;
+    text-shadow: 0 1px 2px rgba(160, 65, 75, 0.18);
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #D66874;
+    text-shadow: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+}
+
+#sobre,
+#quemsomos,
+#essencia,
+#faleconosco {
+    scroll-margin-top: 28px;
+}
+
+.btn-header-nav {
+    background-color: rgba(255, 255, 255, 0.28);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-header-nav:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+    transform: translateY(-1px);
+}
+
+.btn-logout:hover {
+    background-color: rgba(180, 45, 60, 0.35);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================
+   FAIXA DE IMAGEM PÓS-HEADER
+   ======================== */
+.faixa-banner {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background-color: #EBD8CE;
+}
+
+.faixa-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ========================
+   SEÇÃO 1 E 2: MANIFESTO & QUEM SOMOS
+   ======================== */
+.secao-manifesto {
+    padding: 64px 0 72px;
+    display: flex;
+    flex-direction: column;
+}
+
+.secao-manifesto .container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+}
+
+.card-institucional {
+    width: 100%;
+    max-width: 960px;
+    background-color: var(--card-creme);
+    border-radius: 36px;
+    padding: 46px 56px;
+    text-align: center;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.pilula-verde {
+    display: inline-block;
+    background-color: var(--verde-pilula);
+    color: var(--verde-texto);
+    font-family: var(--fonte-serif);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 26px;
+    border-radius: 24px;
+    margin-bottom: 20px;
+}
+
+.subtitulo-verde {
+    display: block;
+    font-family: var(--fonte-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: var(--verde-texto);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.card-institucional h2 {
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    color: var(--texto-escuro);
+    margin-bottom: 16px;
+}
+
+.citacao-rosa {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--rosa-texto);
+    margin-bottom: 24px;
+}
+
+.texto-manifesto {
+    font-size: 16px;
+    color: var(--texto-corpo);
+    line-height: 1.65;
+    margin: 0 auto;
+}
+
+.texto-estreito {
+    max-width: 620px;
+}
+
+.assinatura-floral {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 32px;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--verde-texto);
+}
+
+.flor-rosa {
+    width: 14px;
+    height: 14px;
+    color: var(--rosa-principal);
+    flex-shrink: 0;
+}
+
+/* ========================
+   SEÇÃO 3: O QUE É A FLORA?
+   ======================== */
+.secao-o-que-e {
+    background-color: var(--fundo-rosa-blush);
+    padding: 58px 0 68px;
+}
+
+.pilula-rosa-suave {
+    display: inline-block;
+    background-color: #FF9CA5;
+    color: #C95B66;
+    font-family: var(--fonte-serif);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 28px;
+    border-radius: 24px;
+    margin-bottom: 22px;
+}
+
+.secao-o-que-e h2 {
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    color: var(--texto-escuro);
+    margin-bottom: 20px;
+}
+
+.descricao-o-que-e {
+    max-width: 960px;
+    font-size: 17px;
+    color: var(--texto-corpo);
+    line-height: 1.55;
+}
+
+.descricao-o-que-e p + p {
+    margin-top: 18px;
+}
+
+.galeria-pecas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 42px;
+}
+
+.item-peca {
+    aspect-ratio: 3 / 4.2;
+    background-color: #E7CBC6;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.item-peca img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.item-peca:hover img {
+    transform: scale(1.03);
+}
+
+/* ========================
+   SEÇÃO 4: NOSSA ESSÊNCIA
+   ======================== */
+.secao-essencia {
+    padding: 68px 0;
+}
+
+.painel-essencia {
+    max-width: 1020px;
+    margin: 0 auto;
+    background-color: var(--card-creme);
+    border-radius: 42px;
+    padding: 54px 64px 62px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+.cabecalho-essencia {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.subtitulo-valores {
+    display: block;
+    font-family: var(--fonte-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: var(--texto-escuro);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.cabecalho-essencia h2 {
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.cabecalho-essencia .citacao-rosa {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.grade-valores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 52px;
+}
+
+.card-valor {
+    background-color: #FAF9F6;
+    border-radius: 26px;
+    padding: 28px 34px 32px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.tag-valor {
+    display: inline-block;
+    min-width: 170px;
+    padding: 5px 24px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: var(--fonte-serif);
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.tag-artesanal {
+    background-color: #FF8C94;
+}
+
+.tag-natural {
+    background-color: #B4CE8D;
+}
+
+.tag-autentica {
+    background-color: #8FC0F5;
+}
+
+.tag-criativa {
+    background-color: #FFDD8A;
+}
+
+.card-valor p {
+    font-size: 15px;
+    color: var(--texto-corpo);
+    line-height: 1.55;
+}
+
+/* ========================
+   SEÇÃO 5: FEITO À MÃO, DE VERDADE
+   ======================== */
+.secao-feito-a-mao {
+    background-color: var(--fundo-verde-salvia);
+    padding: 68px 0;
+}
+
+.feito-a-mao-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.feito-a-mao-imagem {
+    max-width: 430px;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+}
+
+.feito-a-mao-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.titulo-exclusividade {
+    margin-left: auto;
+    max-width: 340px;
+    margin-bottom: 36px;
+}
+
+.titulo-exclusividade h2 {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.paragrafo-exclusividade {
+    font-size: 16px;
+    color: var(--texto-corpo);
+    line-height: 1.55;
+    max-width: 450px;
+    margin-bottom: 36px;
+}
+
+.card-proposta {
+    background-color: #F7F3EE;
+    border-radius: 22px;
+    padding: 26px 32px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.label-proposta {
+    display: block;
+    font-family: var(--fonte-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--rosa-texto);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.card-proposta p {
+    font-size: 15px;
+    color: var(--texto-corpo);
+    line-height: 1.55;
+}
+
+/* ========================
+   SEÇÃO 6: CHAMADA FINAL
+   ======================== */
+.secao-cta-final {
+    padding: 48px 0 84px;
+    text-align: center;
+}
+
+.icone-sol {
+    margin-bottom: 28px;
+}
+
+.icone-sol img {
+    width: 64px;
+    height: auto;
+    display: inline-block;
+}
+
+.frase-final {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.28;
+    color: var(--texto-escuro);
+    margin-bottom: 24px;
+}
+
+.destaque-flora {
+    font-style: italic;
+    color: var(--rosa-texto);
+}
+
+.legenda-final {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--texto-corpo);
+    margin-bottom: 48px;
+}
+
+.botoes-finais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-cta-rosa {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--rosa-principal);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: var(--fonte-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    padding: 16px 36px;
+    border-radius: 50px;
+    box-shadow: 0 6px 18px rgba(255, 142, 153, 0.35);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-cta-rosa:hover {
+    background-color: var(--rosa-hover);
+    transform: translateY(-2px);
+}
+
+.btn-cta-contorno {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fundo-creme);
+    color: var(--rosa-texto);
+    border: 1px solid #D6CFC5;
+    text-decoration: none;
+    font-family: var(--fonte-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    padding: 16px 44px;
+    border-radius: 50px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-cta-contorno:hover {
+    background-color: #EFE9DF;
+    border-color: var(--rosa-texto);
+    transform: translateY(-2px);
+}
+
+/* ========================
+   RESPONSIVIDADE
+   ======================== */
+@media (max-width: 960px) {
+    .cabecalho-conteudo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .galeria-pecas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grade-valores {
+        grid-template-columns: 1fr;
+    }
+
+    .feito-a-mao-conteudo {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .feito-a-mao-imagem {
+        margin: 0 auto;
+    }
+
+    .titulo-exclusividade {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-institucional,
+    .painel-essencia {
+        padding: 32px 24px;
+        border-radius: 24px;
+    }
+
+    .galeria-pecas {
+        grid-template-columns: 1fr;
+    }
+
+    .frase-final {
+        font-size: 30px;
+    }
+}
